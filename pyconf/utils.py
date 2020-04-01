@@ -3,6 +3,7 @@ import typing
 from contextlib import contextmanager
 
 
+# from qutebrowser configfiles.py
 @contextmanager
 def saved_sys_properties() -> typing.Iterator[None]:
     """Save various sys properties such as sys.path and sys.modules."""
