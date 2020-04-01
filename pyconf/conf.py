@@ -49,7 +49,7 @@ class PyConfig:
             return func()
         except Exception as e:
             if self._verbose:
-                self._log.error(prefix + e)
+                self._log.error(prefix + str(e))
             if self._raising:
                 raise e
 
