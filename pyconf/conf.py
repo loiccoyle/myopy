@@ -22,10 +22,11 @@ class PyConfig:
         return module
 
     def provide(self, attr: str, obj: typing.Any):
-        """Connect an atribute of the module to an object.
+        """Provide an 'obj' to the python file as 'attr'.
 
         Parameters:
-            attr: name of the attribute with which to provide the object
+            attr: name of the attribute in which to provide the object to the
+                python file.
             obj: object to provide.
         """
         setattr(self.module, attr, obj)
@@ -44,7 +45,8 @@ class PyConfig:
                 sys.path.insert(0, str(self.path.parent))
             exec(ast, self.module.__dict__)
 
-    def _maybe_print_maybe_raise(self, func: typing.Callable, prefix: str="") -> typing.Any:
+    def _maybe_print_maybe_raise(self,
+            func: typing.Callable, prefix: str="") -> typing.Any:
         try:
             return func()
         except Exception as e:
