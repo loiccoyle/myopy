@@ -1,3 +1,5 @@
+![tests](https://github.com/loiccoyle/pyconf/workflows/tests/badge.svg)
+
 # pyconf
 
 Have your configuration files in python!
