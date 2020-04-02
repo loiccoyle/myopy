@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "myopy"
-version = "0.1.0"
+version = "0.1.1"
 description = "myopy, run blind python files."
 authors = ["Loic Coyle <loic.coyle@hotmail.fr>"]
 license = "MIT"
