@@ -1,9 +1,7 @@
 from setuptools import setup
 
-with open('requirements.txt') as fobj:
-    REQUIREMENTS = [l.strip() for l in fobj.readlines()]
 
-DESCRIPTION = ""
+DESCRIPTION = "pyconf, application configuration files in python, easy peasy."
 
 try:
     with open("README.md") as fh:
@@ -17,12 +15,7 @@ setup(name='pyconf',
       description=DESCRIPTION,
       long_description=LONG_DESCRIPTION,
       packages=['pyconf'],
-      # entry_points={
-      #     'console_scripts': [
-      #         'pyconf = pyconf.__main__:main'
-      #     ]
-      # },
-      install_requires=REQUIREMENTS,
+      install_requires=[],
       python_requires='>=3.6',
       setup_requires=['setuptools_scm'],
       use_scm_version=True,
