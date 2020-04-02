@@ -1,7 +1,7 @@
 import sys
 import unittest
 
-import pyconf.utils as utils
+import myopy.utils as utils
 
 class TestSysProperties(unittest.TestCase):
 

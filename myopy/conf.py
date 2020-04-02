@@ -9,7 +9,7 @@ from .utils import saved_sys_properties
 
 class PyConfig:
     def __init__(self, file_path: Path, raising: bool=True, verbose: bool=True):
-        """Python config file handler. Makes objects accessible to the python
+        """Python file handler. Makes python objects accessible to the python
         file, compiles and runs it.
 
         Parameters:

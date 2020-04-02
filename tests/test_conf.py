@@ -1,7 +1,7 @@
 import unittest
 from shutil import rmtree
 from pathlib import Path
-from pyconf import PyConfig
+from myopy import PyConfig
 
 CONFIG_CONTENT = """\
 test_dict['key'] = 2

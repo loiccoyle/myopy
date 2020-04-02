@@ -1,16 +1,19 @@
 ![tests](https://github.com/loiccoyle/pyconf/workflows/tests/badge.svg)
 
-# pyconf
+# myopy
 
-Have your configuration files in python!
+> Run blind python files.
 
-This single class package, provides python objects to a python file at run time. This is ideal for a configuration file where the user does not need to know where an object comes from or how to initialize it. It allows the configuration file to omit imports, object initialization or convoluted subclassing.
+This single class package, provides python objects to a python file at run time. This is ideal for configuration files where the user does not need to know where an object comes from or how to initialize it. It allows the python file to be blind to the origin of it's objects, removing the need for imports, object initializations or convoluted subclassing.
 
 This is pretty much a standalone clone of the way the amazing [qutebrowser](https://github.com/qutebrowser/qutebrowser) handles it's config files.
 
 Feel free to copy paste the `PyConfig` class if you don't want the added dependency.
 
 # Installation
+```
+pip install myopy
+```
 
 # Usage
 
@@ -19,7 +22,7 @@ Say you want to allow the user to change a `dict` containing some settings for a
 In the application you would have something along the lines of:
 
 ```python
-from pyconf import PyConfig
+from myopy import PyConfig
 
 user_dict = {'something': 2}
 

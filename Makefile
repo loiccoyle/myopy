@@ -1,4 +1,4 @@
-PKGNAME=pyconf
+PKGNAME=myopy
 
 default: test
 

@@ -1,7 +1,7 @@
 from setuptools import setup
 
 
-DESCRIPTION = "pyconf, configuration files in python, easy peasy."
+DESCRIPTION = "myopy, run blind python files."
 
 try:
     with open("README.md") as fh:
@@ -9,12 +9,12 @@ try:
 except UnicodeDecodeError:
     LONG_DESCRIPTION = ""
 
-setup(name='pyconf',
+setup(name='myopy',
       author='Loic Coyle',
       author_email='loic.coyle@hotmail.fr',
       description=DESCRIPTION,
       long_description=LONG_DESCRIPTION,
-      packages=['pyconf'],
+      packages=['myopy'],
       install_requires=[],
       python_requires='>=3.6',
       setup_requires=['setuptools_scm'],
