@@ -1,7 +1,7 @@
 from setuptools import setup
 
 
-DESCRIPTION = "pyconf, application configuration files in python, easy peasy."
+DESCRIPTION = "pyconf, configuration files in python, easy peasy."
 
 try:
     with open("README.md") as fh:

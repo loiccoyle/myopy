@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "pyconf"
 version = "0.1.0"
-description = ""
+description = "pyconf, configuration files in python, easy peasy."
 authors = ["Loic Coyle <loic.coyle@hotmail.fr>"]
 license = "MIT"
 
