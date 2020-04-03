@@ -8,7 +8,7 @@ This single class package, provides python objects to a python file at run time.
 
 This is pretty much a standalone clone of the way the amazing [qutebrowser](https://github.com/qutebrowser/qutebrowser) handles it's config files.
 
-Feel free to copy paste the `PyConfig` class if you don't want the added dependency.
+Feel free to copy paste the `PyFile` class if you don't want the added dependency.
 
 # Installation
 ```
