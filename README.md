@@ -1,4 +1,4 @@
-![tests](https://github.com/loiccoyle/myopy/workflows/tests/badge.svg) ![pypi](https://img.shields.io/pypi/v/myopy)
+[![tests](https://github.com/loiccoyle/myopy/workflows/tests/badge.svg)](https://github.com/loiccoyle/myopy/actions) [![pypi](https://img.shields.io/pypi/v/myopy)](https://pypi.org/project/myopy/)
 
 # myopy
 
