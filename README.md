@@ -22,11 +22,11 @@ Say you want to allow the user to change a `dict` containing some settings for a
 In the application you would have something along the lines of:
 
 ```python
-from myopy import PyConfig
+from myopy import PyFile
 
 user_dict = {'something': 2}
 
-config = PyConfig('path/to/config.py')
+config = PyFile('path/to/config.py')
 config.provide('settings', user_dict)  # we provide the config file the user_dict in the settings variable
 out = config.run()  # out is a dict of the provided objects
 print('after running config: ', user_dict)

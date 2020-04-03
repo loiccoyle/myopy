@@ -1,3 +1,3 @@
-from .conf import PyConfig
+from .pyfile import PyFile
 
-__all__ = ['PyConfig']
+__all__ = ['PyFile']

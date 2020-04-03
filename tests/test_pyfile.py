@@ -1,7 +1,7 @@
 import unittest
 from shutil import rmtree
 from pathlib import Path
-from myopy import PyConfig
+from myopy import PyFile
 
 CONFIG_CONTENT = """\
 test_dict['key'] = 2
@@ -54,7 +54,7 @@ class TestPyConfig(unittest.TestCase):
         cfg_dict = {'something': 4}
         cfg_class = TestClass()
 
-        config = PyConfig(self.config_file)
+        config = PyFile(self.config_file)
         config.provide('test_dict', cfg_dict)
         config.provide('test_class', cfg_class)
         config.run()
@@ -64,12 +64,12 @@ class TestPyConfig(unittest.TestCase):
         self.assertEqual(cfg_class.counter, 1)
 
     def test_exception(self):
-        config = PyConfig(self.config_file_err)
+        config = PyFile(self.config_file_err)
         with self.assertRaises(Exception):
             config.run()
 
     def test_import(self):
-        config = PyConfig(self.config_file_imp_2)
+        config = PyFile(self.config_file_imp_2)
         config.run()
 
 
