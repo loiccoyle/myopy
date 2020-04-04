@@ -15,6 +15,4 @@ setup(name='myopy',
       url="https://github.com/loiccoyle/myopy"
       packages=['myopy'],
       python_requires='>=3.6',
-      setup_requires=['setuptools_scm'],
-      use_scm_version=True,
       )
