@@ -28,9 +28,9 @@ user_dict = {'something': 2}
 
 config = PyFile('path/to/config.py')
 config.provide('settings', user_dict)  # we provide the config file the user_dict in the settings variable
-out = config.run()  # out is a dict of the provided objects
+module = config.run()  # returns a module object
 print('after running config: ', user_dict)
-print('out: ', out)
+print('module: ', module)
 ```
 And in the user facing `config.py`, the `user_dict` object would be provided in the `settings` variable, and the user can change its values at will:
 ```python
@@ -43,7 +43,7 @@ The output would be:
 ```
 in config: {'something': 2}
 after running config: {'something': 3, 'something_else': 4}
-out: {'settings': {'something': 3, 'something_else': 4}}
+module: <module 'config' from 'path/to/config.py'>
 ```
 the `user_dict` is modified in place.
 

@@ -19,7 +19,6 @@ class PyFile:
         """
         self.file_path = Path(file_path)
         self.module = self._init_module()
-        self.connections = {}
         self._raising = raising
         self._verbose = verbose
         self._log = logging.getLogger(__name__)
@@ -38,7 +37,6 @@ class PyFile:
             obj: object to provide.
         """
         setattr(self.module, attr, obj)
-        self.connections[attr] = obj
         self._log.debug(f'Providing "{obj}" to "{self.file_path}" as "{attr}".')
 
     def _compile(self) -> CodeType:
@@ -78,11 +76,11 @@ class PyFile:
         """Compile and run python file, with access to the provided objects.
 
         Returns:
-            dict: dictionnary of the connection attribute names and objects.
+            module: module of the python file.
         """
         ast = self._maybe_print_maybe_raise(self._compile,
                 prefix=f"Error at compilation in \"{self.file_path}\": ")
         self._maybe_print_maybe_raise(lambda: self._run(ast),
                 prefix=f"Error at execution in \"{self.file_path}\": ")
-        return self.connections
+        return self.module
 

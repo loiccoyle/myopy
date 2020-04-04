@@ -7,6 +7,7 @@ CONFIG_CONTENT = """\
 test_dict['key'] = 2
 test_dict['something'] = 5
 test_class.some_method()
+A = 2
 """
 
 CONFIG_CONTENT_ERR="""\
@@ -57,11 +58,12 @@ class TestPyConfig(unittest.TestCase):
         config = PyFile(self.config_file)
         config.provide('test_dict', cfg_dict)
         config.provide('test_class', cfg_class)
-        config.run()
+        module = config.run()
 
         self.assertEqual(cfg_dict['something'], 5)
         self.assertEqual(cfg_dict['key'], 2)
         self.assertEqual(cfg_class.counter, 1)
+        self.assertTrue(hasattr(module, "A"))
 
     def test_exception(self):
         config = PyFile(self.config_file_err)
@@ -70,8 +72,7 @@ class TestPyConfig(unittest.TestCase):
 
     def test_import(self):
         config = PyFile(self.config_file_imp_2)
-        config.run()
-
+        module = config.run()
 
     def tearDown(self):
         rmtree(self.test_folder, ignore_errors=True)
