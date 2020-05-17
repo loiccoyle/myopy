@@ -56,8 +56,8 @@ class TestPyConfig(unittest.TestCase):
         cfg_class = TestClass()
 
         config = PyFile(self.config_file)
-        config.provide('test_dict', cfg_dict)
-        config.provide('test_class', cfg_class)
+        config.provide(test_dict=cfg_dict,
+                       test_class=cfg_class)
         module = config.run()
 
         self.assertEqual(cfg_dict['something'], 5)

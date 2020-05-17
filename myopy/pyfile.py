@@ -28,7 +28,22 @@ class PyFile:
         module.__file__ = str(self.file_path)
         return module
 
-    def provide(self, attr:str, obj: typing.Any):
+    def provide(self, **attr_obj):
+        """Provide objects to the python file.
+
+        Parameters:
+            **attr_obj: attribute name and python object.
+
+        Examples:
+            To provide a float 1.5 to the variable "NUMBER" of "python_file.py"
+            >>> pf = PyFile("python_file.py")
+            >>> pf.provide(NUMBER=1.5)
+        """
+        for attr, obj in attr_obj.items():
+            self._provide(attr, obj)
+
+
+    def _provide(self, attr:str, obj: typing.Any):
         """Provide 'obj' to the python file as 'attr'.
 
         Parameters:
