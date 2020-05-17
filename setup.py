@@ -11,8 +11,8 @@ setup(name='myopy',
       author_email='loic.coyle@hotmail.fr',
       description=DESCRIPTION,
       long_description=LONG_DESCRIPTION,
-      long_description_content_type="text/markdown"
-      url="https://github.com/loiccoyle/myopy"
+      long_description_content_type="text/markdown",
+      url="https://github.com/loiccoyle/myopy",
       packages=['myopy'],
       python_requires='>=3.6',
       )
