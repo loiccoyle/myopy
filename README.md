@@ -27,7 +27,8 @@ from myopy import PyFile
 user_dict = {'something': 2}
 
 config = PyFile('path/to/config.py')
-config.provide('settings', user_dict)  # we provide the config file the user_dict in the settings variable
+# we provide the config file the user_dict in the 'settings' variable
+config.provide(settings=user_dict)
 module = config.run()  # returns a module object
 print('after running config: ', user_dict)
 print('module: ', module)
