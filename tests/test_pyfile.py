@@ -76,7 +76,3 @@ class TestPyConfig(unittest.TestCase):
 
     def tearDown(self):
         rmtree(self.test_folder, ignore_errors=True)
-
-
-
-

@@ -1,14 +1,14 @@
+import logging
 import sys
 import typing
-import logging
-from types import ModuleType, CodeType
 from pathlib import Path
+from types import CodeType, ModuleType
 
 from .utils import saved_sys_properties
 
 
 class PyFile:
-    def __init__(self, file_path: Path, raising: bool=True, verbose: bool=True):
+    def __init__(self, file_path: Path, raising: bool = True, verbose: bool = True):
         """Python file handler. Makes python objects accessible to the python
         file, compiles and runs it.
 
@@ -43,7 +43,7 @@ class PyFile:
             self._provide(attr, obj)
 
 
-    def _provide(self, attr:str, obj: typing.Any):
+    def _provide(self, attr: str, obj: typing.Any):
         """Provide 'obj' to the python file as 'attr'.
 
         Parameters:
@@ -57,9 +57,9 @@ class PyFile:
     def _compile(self) -> CodeType:
         """Compile python file.
         """
-        with self.file_path.open('r') as f:
+        with self.file_path.open("r") as f:
             source_code = f.read()
-        ast = compile(source_code, self.file_path, 'exec')
+        ast = compile(source_code, self.file_path, "exec")
         return ast
 
     def _run(self, ast: CodeType):
@@ -75,10 +75,8 @@ class PyFile:
             exec(ast, self.module.__dict__)
 
     def _maybe_print_maybe_raise(
-            self,
-            func: typing.Callable,
-            prefix: str=""
-            ) -> typing.Any:
+        self, func: typing.Callable, prefix: str = ""
+    ) -> typing.Any:
         try:
             return func()
         except Exception as e:
@@ -87,15 +85,17 @@ class PyFile:
             if self._raising:
                 raise e
 
-    def run(self) -> dict:
+    def run(self) -> ModuleType:
         """Compile and run python file, with access to the provided objects.
 
         Returns:
             module: module of the python file.
         """
-        ast = self._maybe_print_maybe_raise(self._compile,
-                prefix=f"Error at compilation in \"{self.file_path}\": ")
-        self._maybe_print_maybe_raise(lambda: self._run(ast),
-                prefix=f"Error at execution in \"{self.file_path}\": ")
+        ast = self._maybe_print_maybe_raise(
+            self._compile, prefix=f'Error at compilation in "{self.file_path}": '
+        )
+        self._maybe_print_maybe_raise(
+            lambda: self._run(ast), prefix=f'Error at execution in "{self.file_path}": '
+        )
         return self.module
 
