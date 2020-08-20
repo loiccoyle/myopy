@@ -1,4 +1,5 @@
 import logging
+import os
 import sys
 import typing
 from pathlib import Path
@@ -42,7 +43,6 @@ class PyFile:
         for attr, obj in attr_obj.items():
             self._provide(attr, obj)
 
-
     def _provide(self, attr: str, obj: typing.Any):
         """Provide 'obj' to the python file as 'attr'.
 
@@ -69,9 +69,10 @@ class PyFile:
             ast: compiled python code.
         """
         with saved_sys_properties():
-            config_dir = str(self.file_path.parent)
+            config_dir = str(self.file_path.parent.resolve())
             if config_dir not in sys.path:
-                sys.path.insert(0, str(self.file_path.parent))
+                sys.path.insert(0, config_dir)
+            os.chdir(config_dir)
             exec(ast, self.module.__dict__)
 
     def _maybe_print_maybe_raise(
